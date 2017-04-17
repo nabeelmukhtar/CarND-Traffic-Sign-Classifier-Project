@@ -67,10 +67,10 @@ A also tried using grayscale conversion but it did not seem to improve accuracy,
 Also I had to augment the dataset with additional images because of two reasons: First the model was overfitting on current dataset and second the training data had considerable class imbalance. 
 I used the following techniques for generating additional images.
 
-* Rotation
-* Translation
+* Rotation.
+* Translation.
 * Add Noise.
-* Add Contrast
+* Add Contrast.
 
 Here are some example images and their augmented versions.
 
@@ -103,6 +103,7 @@ Here are some example images and their augmented versions.
     Augmenting class Roundabout mandatory with:700
     Augmenting class End of no passing with:790
     Augmenting class End of no passing by vehicles over 3.5 metric tons with:790
+
     Number of training examples after augmentation = 51690
     
 ![png](writeup_images/output_12_1.png)
@@ -124,10 +125,10 @@ My final model consisted of the following layers:
 | Flatten       		| outputs 400  									|
 | Fully connected		| outputs 120  									|
 | RELU					|												|
-| Dropout				| keep probability: 0.7							|
+| Dropout				| keep probability: 0.8							|
 | Fully connected		| outputs 84  									|
 | RELU					|												|
-| Dropout				| keep probability: 0.7							|
+| Dropout				| keep probability: 0.8							|
 | Fully connected		| outputs 43  									|
 
 
