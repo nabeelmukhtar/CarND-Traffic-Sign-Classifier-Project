@@ -261,6 +261,8 @@ For an example of what feature map outputs look like, check out NVIDIA's results
 </figure>
  <p></p> 
 
+Here is the feature map output of the first convolutional layer for the first three images in my test set.
+
 ![png](writeup_images/network0.png)
 ![png](writeup_images/network1.png)
 ![png](writeup_images/network2.png)
