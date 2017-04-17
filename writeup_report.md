@@ -176,7 +176,7 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Wild animals crossing	| No entry   									| 
+| Wild animals crossing	| Stop      									| 
 | Road work    			| Road work										|
 | Children crossing		| Children crossing								|
 | Speed limit (30km/h)	| Speed limit (30km/h)			 				|
@@ -189,15 +189,15 @@ The only sign that it failed to classify was the wild animal crossing. There wer
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is not sure that this is a wild animal sign. It predicts a Children crossing.
+For the first image, the model is not sure that this is a wild animal sign. It predicts a Stop sign.
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .69        			| Children crossing								| 
-| .18     				| Speed limit (20km/h							|
-| .06					| Bumpy Road									|
-| .02	      			| Bicycles crossing				 				|
-| .02				    | Road narrows on the right						|
+| .87        			| Stop          								| 
+| .10     				| Bicycles crossing   							|
+| .01					| Priority Road									|
+| .01	      			| Children crossing				 				|
+| .01				    | Dangerous curve to the right					|
 
 
 For the second image, the model is relatively sure that this is a Road work sign (probability of 1), and the image does contain a Road work sign. The top five soft max probabilities were
@@ -205,20 +205,20 @@ For the second image, the model is relatively sure that this is a Road work sign
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.0         			| Road work   									| 
+| .00                   | Double curve                                  |
+| .00                   | Wild animals crossing                         |
 | .00     				| Traffic signals								|
-| .00					| Bumpy Road									|
-| .00	      			| Road narrows on the right		 				|
-| .00				    | Double curve      							|
+| .00	      			| Bicycles crossing      		 				|
 
 For the third image, the model is relatively sure that this is a Children crossing sign (probability of 1), and the image does contain a Children crossing sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.0         			| Children crossing								| 
-| .00     				| Road narrows on the right						|
-| .00					| Dangerous curve to the right					|
-| .00	      			| Beware of ice/snow			 				|
-| .00				    | Bicycles crossing    							|
+| .00     				| Slippery Road         						|
+| .00                   | Bicycles crossing                             |
+| .00					| Road narrows to the right			     		|
+| .00                   | Dangerous curve to the right                  |
 
 For the fourth image, the model is relatively sure that this is a Speed limit (30km/h) (probability of 1), and the image does contain a Speed limit (30km/h) sign. The top five soft max probabilities were (notice that all are speed limit signs)
 
@@ -226,19 +226,19 @@ For the fourth image, the model is relatively sure that this is a Speed limit (3
 |:---------------------:|:---------------------------------------------:| 
 | 1.0         			| Speed limit (30km/h)							| 
 | .00     				| Speed limit (50km/h)							|
+| .00                   | Speed limit (70km/h)                          |
+| .00                   | Speed limit (60km/h)                          |
 | .00					| Speed limit (80km/h)							|
-| .00	      			| Speed limit (60km/h)			 				|
-| .00				    | Speed limit (70km/h) 							|
 
 For the fifth image, the model is relatively sure that this is a Stop (probability of 1), and the image does contain a Stop sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.0         			| Stop											| 
-| .00     				| Bicycles crossing								|
-| .00					| No entry										|
-| .00	      			| No vehicles					 				|
-| .00				    | Speed limit (30km/h) 							|
+| .00                   | Speed limit (80km/h)                          |
+| .00                   | No vehicles                                   |
+| .00                   | No entry                                      |
+| .00                   | Speed limit (30km/h)                          | 
 
 
 
@@ -261,8 +261,10 @@ For an example of what feature map outputs look like, check out NVIDIA's results
 </figure>
  <p></p> 
 
+![png](writeup_images/network0.png)
+![png](writeup_images/network1.png)
+![png](writeup_images/network2.png)
 
 ### (Optional) Visualizing the Neural Network
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-Discussion TBD
+The images above show the first layer of the network which shows the edges of the signs. I could not visualize the deeper layers of the network so could not understand more advanced features.
