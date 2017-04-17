@@ -64,7 +64,7 @@ I used one preprocessing techniques:
 * I normalized the image to a range between -0.5 to 0.5
 
 A also tried using grayscale conversion but it did not seem to improve accuracy, so stuck with color images.
-Also I had to augment the dataset with additional images because of two reasons: First the model was overfitting on current dataset and second the training data had considerable class imbalance. 
+Also I had to augment the dataset with additional images because of two reasons: First the model was overfitting on current dataset and second the training data had considerable class imbalance. I decided to generate atleast 1000 images for each class which has less than 1000 samples.
 I used the following techniques for generating additional images.
 
 * Rotation.
@@ -148,15 +148,7 @@ My final model results were:
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 * I started out with the LeNet model that was mentioned in the lessons. But despite augmenting the dataset, the model was overfitting and performing poorly on test dataset.
-* In the second attempt I added dropout layers after each fully connected layer with a droput of 0.7. This step dramatically increased the accuracy to 0.93
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
+* In the second attempt I added dropout layers after each fully connected layer with a droput of 0.8. This step dramatically increased the accuracy to 0.934. I think the accueacy can be further improved by generating more images so that each class has about 1500 samples. This will reduce class imbalance and overfitting.
 
 ### Test a Model on New Images
 
@@ -246,21 +238,6 @@ For the fifth image, the model is relatively sure that this is a Stop (probabili
 ---
 
 ## Step 4: Visualize the Neural Network's State with Test Images
-
- This Section is not required to complete but acts as an additional excersise for understaning the output of a neural network's weights. While neural networks can be a great learning device they are often referred to as a black box. We can understand what the weights of a neural network look like better by plotting their feature maps. After successfully training your neural network you can see what it's feature maps look like by plotting the output of the network's weight layers in response to a test stimuli image. From these plotted feature maps, it's possible to see what characteristics of an image the network finds interesting. For a sign, maybe the inner network feature maps react with high activation to the sign's boundary outline or to the contrast in the sign's painted symbol.
-
- Provided for you below is the function code that allows you to get the visualization output of any tensorflow weight layer you want. The inputs to the function should be a stimuli image, one used during training or a new one you provided, and then the tensorflow variable name that represents the layer's state during the training process, for instance if you wanted to see what the [LeNet lab's](https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/6df7ae49-c61c-4bb2-a23e-6527e69209ec/lessons/601ae704-1035-4287-8b11-e2c2716217ad/concepts/d4aca031-508f-4e0b-b493-e7b706120f81) feature maps looked like for it's second convolutional layer you could enter conv2 as the tf_activation variable.
-
-For an example of what feature map outputs look like, check out NVIDIA's results in their paper [End-to-End Deep Learning for Self-Driving Cars](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) in the section Visualization of internal CNN State. NVIDIA was able to show that their network's inner weights had high activations to road boundary lines by comparing feature maps from an image with a clear path to one without. Try experimenting with a similar test to show that your trained network's weights are looking for interesting features, whether it's looking at differences in feature maps from images with or without a sign, or even what feature maps look like in a trained network vs a completely untrained one on the same sign image.
-
-<figure>
- <img src="visualize_cnn.png" width="380" alt="Combined Image" />
- <figcaption>
- <p></p> 
- <p style="text-align: center;"> Your output should look something like this (above)</p> 
- </figcaption>
-</figure>
- <p></p> 
 
 Here is the feature map output of the first convolutional layer for the first three images in my test set.
 
